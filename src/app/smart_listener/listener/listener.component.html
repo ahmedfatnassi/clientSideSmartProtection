@@ -1,3 +1,15 @@
-<p>
-  listener works!
-</p>
+
+<button class ="btn btn-info" (click)="changestate()"  >clike it</button>
+<div *ngFor="let container of containers ">
+        <div  style="position: absolute ;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 2px solid #E57373 ;
+          box-shadow: 0px 0px 15px #F06292;
+          color :darkgoldenrod;
+
+          " class=" row align-items-center" [@ball]="state"  (@ball.done)="onEnd($event)" [ngStyle]="{'top': container[0]+'px', 'left': container[1]+'px','bottom': container[2] +'px','right': container[3]+'px','background-color': container[4]}">
+
+        </div>
+</div>
