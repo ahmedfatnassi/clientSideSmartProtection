@@ -2,19 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-google-maps',
-
   styleUrls: ['./google-maps.component.css'],
-  styles : [`
-    agm-map {
-      height: 300px;
-    }
-  `] ,
-  template :
-  '<agm-map [latitude]="lat" [longitude]="lng"></agm-map>'
+  templateUrl : './google-maps.component.html'
 })
 export class GoogleMapsComponent implements OnInit {
-  lat = 51.678418;
-  lng = 7.809007;
+  title = 'My first AGM project';
+  lat = 36.778418;
+  lng = 10.09007;
   constructor() { }
 
   ngOnInit() {

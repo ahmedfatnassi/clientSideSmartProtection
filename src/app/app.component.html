@@ -6,9 +6,15 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#">Weather <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="map">Google maps</a>
+      <a class="nav-item nav-link" href="maps">Google maps</a>
+      <a class="nav-item nav-link" href="createcitizen">Create Citizen</a>
 
     </div>
   </div>
 </nav>
-<app-listener></app-listener>
+<router-outlet></router-outlet>
+
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+

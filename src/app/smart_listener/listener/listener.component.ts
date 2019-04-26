@@ -2,12 +2,16 @@ import {Component, OnInit, NgModule, Renderer2, AfterViewInit} from '@angular/co
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {container} from '@angular/core/src/render3';
+import {Service} from '../service';
+import {FormArray} from '@angular/forms';
+
 
 
 @Component({
   selector: 'app-listener',
   templateUrl: './listener.component.html',
   styleUrls: ['./listener.component.css'],
+
   animations: [
     trigger  ('ball' , [
       state('small' , style({   transform: 'scale(1)'})),
@@ -27,10 +31,12 @@ import {container} from '@angular/core/src/render3';
   ileft = 0 ;
   iright = 0;
   containers = [];
+  i = 0  ;
+  clear : 0 ;
   colors = ['cadetblue', 'khaki', 'teal', 'red', 'darkgoldenrod', 'darkcyan', 'darkred', 'fuchsia'] ;
 
 
-  constructor() { }
+  constructor(private service: Service) { }
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -48,14 +54,34 @@ import {container} from '@angular/core/src/render3';
           this.state = 'big';
         }, 1000);
       }
+    /*if ((this.i === 5)) {
+      this.i = 0;
+      this.itop = Math.max(60, Math.floor(Math.random() * 800));
+      this.ileft = Math.floor(Math.random() * 1700);
+      this.ibottom = Math.floor(Math.random() * 700);
+      this.iright = Math.floor(Math.random() * 700);
+      this.containers.push([this.itop, this.ileft, this.ibottom, this.iright, this.colors[Math.floor(Math.random() * this.containers.length)]]);
+      console.log( this.clear++);
+      if( this.clear === 20 ) {
+        this.clear = 0;
+        this.containers = [];
+      }
+    }*/
+
+
+   // this.i = this.i + 1;
 
 
 
   }
 
+
   ngOnInit(): void {
     this.containers.push([500, 400, 0, 0, 'red']);
 
+  }
+  getid() {
+    this.service.getData();
   }
   changestate() {
     this.itop = Math.max(60, Math.floor(Math.random() * 800)) ;
